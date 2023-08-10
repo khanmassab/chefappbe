@@ -1,0 +1,63 @@
+.page-item {
+  &.active .page-link {
+    box-shadow: $pagination-active-box-shadow;
+    border-radius: 50%;
+  }
+
+  .page-link,
+  span {
+    border-radius: 50%;
+    display: $page-link-display;
+    align-items: $page-link-align-items;
+    justify-content: $page-link-justify-content;
+    color: $secondary;
+    padding: 0;
+    margin: $page-link-margin;
+    border-radius: $page-link-radius !important;
+    width: $page-link-width;
+    height: $page-link-height;
+    font-size: $font-size-sm;
+  }
+}
+
+.pagination-lg {
+  .page-item {
+    .page-link,
+    span {
+      width: $page-link-width-lg;
+      height: $page-link-height-lg;
+      line-height: $page-link-line-height-lg;
+      border-radius: 50%;
+    }
+  }
+}
+
+.pagination-sm {
+  .page-item {
+    .page-link,
+    span {
+      width: $page-link-width-sm;
+      height: $page-link-height-sm;
+      line-height: $page-link-line-height-sm;
+      border-radius: 50%;
+    }
+  }
+}
+
+
+// Colors
+.pagination {
+  @each $name, $value in $theme-gradient-colors {
+    &.pagination-#{$name} {
+      .page-item.active > .page-link {
+        &,
+        &:focus,
+        &:hover {
+          @include gradient-directional(nth($value, 1) 0%, nth($value, -1) 100%, $deg: 310deg);
+          border: none;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

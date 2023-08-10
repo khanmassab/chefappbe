@@ -1,0 +1,7 @@
+*.sqlite*
+/.env
+/composer.json
+/composer-lock.json
+/vendor
+/package.json
+/config/database.php
